@@ -113,23 +113,45 @@ export default function Home() {
             </label>
 
             <label className="grid gap-1">
-              <span className="text-sm">Budget</span>
-              <select className="border border-slate-200 rounded-xl p-2.5 focus:outline-none focus:ring-2 focus:ring-slate-300" value={form.budget}
-                      onChange={(e) => setForm({ ...form, budget: e.target.value as any })}>
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
-              </select>
+              <div className="grid gap-1">
+                <span className="text-sm">Budget</span>
+                <div className="inline-flex rounded-xl border border-slate-200 bg-slate-100 p-1">
+                  {["low", "medium", "high"].map((b) => (
+                      <button
+                          key={b}
+                          type="button"
+                          onClick={() => setForm({ ...form, budget: b as any })}
+                          className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+                              form.budget === b
+                                  ? "bg-white shadow text-slate-900"
+                                  : "text-slate-600 hover:text-slate-900"
+                          }`}
+                      >
+                        {b.charAt(0).toUpperCase() + b.slice(1)}
+                      </button>
+                  ))}
+                </div>
+              </div>
             </label>
 
             <label className="grid gap-1">
               <span className="text-sm">Style</span>
-              <select className="border border-slate-200 rounded-xl p-2.5 focus:outline-none focus:ring-2 focus:ring-slate-300" value={form.style}
-                      onChange={(e) => setForm({ ...form, style: e.target.value as any })}>
-                <option value="relaxed">Relaxed</option>
-                <option value="balanced">Balanced</option>
-                <option value="packed">Packed</option>
-              </select>
+              <div className="inline-flex rounded-xl border border-slate-200 bg-slate-100 p-1">
+                {["relaxed", "balanced", "packed"].map((s) => (
+                    <button
+                        key={s}
+                        type="button"
+                        onClick={() => setForm({ ...form, style: s as any })}
+                        className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+                            form.style === s
+                                ? "bg-white shadow text-slate-900"
+                                : "text-slate-600 hover:text-slate-900"
+                        }`}
+                    >
+                      {s.charAt(0).toUpperCase() + s.slice(1)}
+                    </button>
+                ))}
+              </div>
             </label>
           </div>
 
