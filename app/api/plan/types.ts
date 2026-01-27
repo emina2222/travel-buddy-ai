@@ -23,6 +23,7 @@ export type DayPlan = {
 export type TravelPlanResponse = {
     destination: string;
     currency: string;
+    estimatedExpense: number;
     days: DayPlan[];
 };
 

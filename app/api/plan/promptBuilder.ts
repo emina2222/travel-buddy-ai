@@ -19,6 +19,7 @@ Hard rules:
 {
   "destination": string,
   "currency": string,
+  "estimatedExpense": number,
   "days": [
     {
       "date": "YYYY-MM-DD",

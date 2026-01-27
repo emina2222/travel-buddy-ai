@@ -10,6 +10,7 @@ function basicValidatePlan(plan: unknown): plan is TravelPlanResponse {
     if (!isRecord(plan)) return false;
     if (typeof plan.destination !== "string") return false;
     if (typeof plan.currency !== "string") return false;
+    if (typeof plan.estimatedExpense !== "number") return false;
     if (!Array.isArray(plan.days)) return false;
 
     for (const day of plan.days) {
