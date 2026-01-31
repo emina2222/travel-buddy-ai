@@ -15,11 +15,11 @@ const INTERESTS = [
 ];
 
 type Props = {
-    onGenerate: (req: TravelPlanRequest) => void;
+    onGenerateAction: (req: TravelPlanRequest) => void;
     loading: boolean;
 };
 
-export default function TravelForm({ onGenerate, loading }: Props) {
+export default function TravelForm({ onGenerateAction, loading }: Props) {
     const [form, setForm] = useState<TravelPlanRequest>({
         from: "Belgrade",
         to: "Vienna",
@@ -192,7 +192,7 @@ export default function TravelForm({ onGenerate, loading }: Props) {
             </label>
 
             <button
-                onClick={() => onGenerate(form)}
+                onClick={() => onGenerateAction(form)}
                 disabled={loading}
                 className="mt-2 inline-flex items-center justify-center rounded-xl bg-slate-900 text-white px-6 py-2.5 font-medium transition hover:bg-slate-800 disabled:opacity-60"
             >

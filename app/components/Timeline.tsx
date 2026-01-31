@@ -1,5 +1,5 @@
 import {TravelPlanResponse} from "@/app/api/plan/types";
-import {iconFor} from "@/app/components/TimelineItem";
+import {iconFor} from "@/app/utils";
 
 interface TimelineProps {
     plan: TravelPlanResponse;

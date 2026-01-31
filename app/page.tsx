@@ -4,6 +4,7 @@ import { useState } from "react";
 import TravelForm from "./components/TravelForm";
 import Timeline from "./components/Timeline";
 import {TravelPlanRequest, TravelPlanResponse} from "@/app/api/plan/types";
+import ErrorMessage from "@/app/components/ErrorMessage";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -49,13 +50,9 @@ export default function Home() {
             </p>
           </div>
 
-          <TravelForm onGenerate={generate} loading={loading} />
+          <TravelForm onGenerateAction={generate} loading={loading} />
 
-          {error && (
-              <div className="mt-6 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700">
-                {error}
-              </div>
-          )}
+          {error && (<ErrorMessage msg={error} />)}
 
           {plan && <Timeline plan={plan} />}
         </div>
